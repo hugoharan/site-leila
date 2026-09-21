@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/industry-f02040c4-ad25-4f58-a8da-61366b4251c5/styles.css">
+<script src="_ds/industry-f02040c4-ad25-4f58-a8da-61366b4251c5/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FBF7F9; color: #3D3344; }
+  * { box-sizing: border-box; }
+  a { color: #8E3F63; text-decoration: none; transition: color .25s ease, background .25s ease, border-color .25s ease; }
+  a:hover { color: #5B3370; }
+  @keyframes floatA { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px,-40px) scale(1.12); } }
+  @keyframes pendulumSwing { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } }
+  @keyframes softPulse { 0% { box-shadow: 0 10px 28px rgba(69,42,87,.34), 0 0 0 0 rgba(210,119,159,.5); } 70% { box-shadow: 0 10px 28px rgba(69,42,87,.34), 0 0 0 18px rgba(210,119,159,0); } 100% { box-shadow: 0 10px 28px rgba(69,42,87,.34), 0 0 0 0 rgba(210,119,159,0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .post { animation: fadeUp .5s ease both; }
+  .postcard { transition: transform .3s ease, border-color .3s ease; }
+  .postcard:hover { transform: translateY(-4px); border-color: #C89FB6; }
+</style>
+</helmet>
+
+<div style="font-family:Barlow,sans-serif;background:#FBF7F9;min-height:100vh">
+
+  <!-- ===== cabeçalho ===== -->
+  <header style="position:sticky;top:0;z-index:20;background:rgba(251,247,249,.94);backdrop-filter:blur(8px);border-bottom:1px solid #EEDFE7">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+      <a href="Leila Goddard - Landing.dc.html" style="display:flex;align-items:center;gap:12px;flex:none">
+        <svg viewBox="0 0 120 112" style="height:44px;overflow:visible" fill="none" stroke="#5B3370" stroke-width="2.6" stroke-linecap="round">
+          <circle cx="60" cy="58" r="44" stroke-dasharray="242.5 34" stroke-dashoffset="-17"></circle>
+          <circle cx="60" cy="58" r="38.5" stroke="#D2779F" stroke-opacity=".6" stroke-dasharray="212 30" stroke-dashoffset="-15"></circle>
+          <line x1="80" y1="58" x2="104" y2="58"></line>
+          <g style="animation:pendulumSwing 5s ease-in-out infinite;transform-origin:42px 22px">
+            <line x1="42" y1="24" x2="42" y2="54"></line>
+            <path d="M42 54 C51 66 49.5 79 42 89 C34.5 79 33 66 42 54 Z" fill="#D2779F" stroke="none"></path>
+          </g>
+          <path d="M42 91 C58 91 74 91 84 91 C88.5 91 90 88.5 90 85"></path>
+        </svg>
+        <span style="display:flex;flex-direction:column;gap:3px">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:23px;line-height:1;letter-spacing:.04em;color:#452A57">Leila Goddard</span>
+          <span style="font-size:8.5px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:#8E3F63">Radiestesia e Terapias Holísticas</span>
+        </span>
+      </a>
+      <nav style="display:flex;gap:22px;flex-wrap:wrap;margin-left:auto;font-size:13.5px">
+        <a href="Leila Goddard - Landing.dc.html#inicio">Início</a>
+        <a href="Leila Goddard - Landing.dc.html#sobre">Sobre</a>
+        <a href="Leila Goddard - Landing.dc.html#servicos">Serviços</a>
+        <a href="#blog" style="color:#5B3370;font-weight:500">Blog</a>
+      </nav>
+      <a href="https://wa.me/553175742707?text=Ol%C3%A1%20Leila%2C%20gostaria%20de%20agendar%20minha%20sess%C3%A3o." target="_blank" rel="noopener" style="flex:none;background:#5B3370;color:#FBF7F9;padding:11px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#452A57;color:#FBF7F9">Agendar Consulta</a>
+    </div>
+  </header>
+
+  <!-- ===== breadcrumbs ===== -->
+  <div style="border-bottom:1px solid #EEDFE7;background:#F6ECF1">
+    <div style="max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;letter-spacing:.03em;color:#6B5D74">
+      <a href="Leila Goddard - Landing.dc.html">Início</a>
+      <span style="color:#C89FB6">/</span>
+      <a href="#blog" style="{{ crumbBlogStyle }}">Blog</a>
+      <sc-if value="{{ isPost }}" hint-placeholder-val="{{ false }}">
+        <span style="color:#C89FB6">/</span>
+        <span style="color:#452A57">{{ postTitle }}</span>
+      </sc-if>
+    </div>
+  </div>
+
+  <!-- ===== índice do blog ===== -->
+  <sc-if value="{{ isIndex }}" hint-placeholder-val="{{ true }}">
+  <main id="blog" style="position:relative;overflow:hidden">
+    <div style="position:absolute;right:-160px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(210,119,159,.24),rgba(210,119,159,0) 70%);animation:floatA 22s ease-in-out infinite;pointer-events:none"></div>
+
+    <section style="position:relative;max-width:1180px;margin:0 auto;padding:52px 24px 0;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:720px">
+        <span style="font-size:10px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#8E3F63">Blog · Radiestesia e equilíbrio emocional</span>
+        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,4.6vw,54px);line-height:1.08;color:#452A57;margin:0;text-wrap:pretty">Conteúdos para entender o que o seu campo energético está pedindo</h1>
+        <p style="font-size:16.5px;line-height:1.65;color:#4A4152;margin:0;text-wrap:pretty">Textos escritos por Leila Goddard sobre radiestesia, mesa radiônica, florais e harmonização de ambientes — sempre com atendimento 100% online.</p>
+      </div>
+      <div style="border:1px solid #E0C6D5;padding:10px;background:#fff">
+        <image-slot id="blog-index-hero" shape="rect" style="width:100%;height:clamp(220px,34vw,420px)" placeholder="Imagem de topo do blog — arraste aqui (formato retangular, sugerido 1600×600)"></image-slot>
+      </div>
+    </section>
+
+    <section style="position:relative;max-width:1180px;margin:0 auto;padding:56px 24px 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      <div class="postcard" style="background:#fff;border:1px solid #E0C6D5;padding:0;display:flex;flex-direction:column">
+        <image-slot id="blog-thumb-1" shape="rect" style="width:100%;height:190px" placeholder="Imagem do artigo 1"></image-slot>
+        <a href="#artigo-1" style="display:flex;flex-direction:column;gap:12px;padding:26px;color:inherit" style-hover="color:inherit">
+          <span style="font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#8E3F63">Radiestesia</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:25px;line-height:1.2;color:#452A57;text-wrap:pretty">O que é Radiestesia? Entenda como o pêndulo capta as frequências do seu corpo</span>
+          <span style="font-size:14.5px;line-height:1.6;color:#554A5E;text-wrap:pretty">A sensibilidade às radiações explicada sem misticismo: como o pêndulo amplifica as respostas do seu sistema nervoso.</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#5B3370">Ler artigo →</span>
+        </a>
+      </div>
+      <div class="postcard" style="background:#fff;border:1px solid #E0C6D5;padding:0;display:flex;flex-direction:column">
+        <image-slot id="blog-thumb-2" shape="rect" style="width:100%;height:190px" placeholder="Imagem do artigo 2"></image-slot>
+        <a href="#artigo-2" style="display:flex;flex-direction:column;gap:12px;padding:26px;color:inherit" style-hover="color:inherit">
+          <span style="font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#8E3F63">Mesa Radiônica</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:25px;line-height:1.2;color:#452A57;text-wrap:pretty">Mesa Radiônica à distância: como funciona a harmonização sem sair de casa?</span>
+          <span style="font-size:14.5px;line-height:1.6;color:#554A5E;text-wrap:pretty">O campo vibracional, o testemunho energético e o laudo em PDF que chega no seu WhatsApp.</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#5B3370">Ler artigo →</span>
+        </a>
+      </div>
+      <div class="postcard" style="background:#fff;border:1px solid #E0C6D5;padding:0;display:flex;flex-direction:column">
+        <image-slot id="blog-thumb-3" shape="rect" style="width:100%;height:190px" placeholder="Imagem do artigo 3"></image-slot>
+        <a href="#artigo-3" style="display:flex;flex-direction:column;gap:12px;padding:26px;color:inherit" style-hover="color:inherit">
+          <span style="font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#8E3F63">Florais</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:25px;line-height:1.2;color:#452A57;text-wrap:pretty">Cansaço mental e ansiedade: como radiestesia e florais devolvem a leveza</span>
+          <span style="font-size:14.5px;line-height:1.6;color:#554A5E;text-wrap:pretty">Por que dormir oito horas não resolve — e como o pêndulo elimina a adivinhação na escolha das essências.</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#5B3370">Ler artigo →</span>
+        </a>
+      </div>
+      <div class="postcard" style="background:#fff;border:1px solid #E0C6D5;padding:0;display:flex;flex-direction:column">
+        <image-slot id="blog-thumb-4" shape="rect" style="width:100%;height:190px" placeholder="Imagem do artigo 4"></image-slot>
+        <a href="#artigo-4" style="display:flex;flex-direction:column;gap:12px;padding:26px;color:inherit" style-hover="color:inherit">
+          <span style="font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#8E3F63">Ambientes</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:25px;line-height:1.2;color:#452A57;text-wrap:pretty">Harmonização de ambientes: a energia da sua casa está drenando seu sono?</span>
+          <span style="font-size:14.5px;line-height:1.6;color:#554A5E;text-wrap:pretty">Estresse geopático, poluição eletromagnética e memórias impregnadas nas paredes.</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#5B3370">Ler artigo →</span>
+        </a>
+      </div>
+      <div class="postcard" style="background:#fff;border:1px solid #E0C6D5;padding:0;display:flex;flex-direction:column">
+        <image-slot id="blog-thumb-5" shape="rect" style="width:100%;height:190px" placeholder="Imagem do artigo 5"></image-slot>
+        <a href="#artigo-5" style="display:flex;flex-direction:column;gap:12px;padding:26px;color:inherit" style-hover="color:inherit">
+          <span style="font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#8E3F63">Autoconhecimento</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:25px;line-height:1.2;color:#452A57;text-wrap:pretty">5 sinais claros de que seu campo energético precisa de reequilíbrio</span>
+          <span style="font-size:14.5px;line-height:1.6;color:#554A5E;text-wrap:pretty">Cansaço que não passa, vida travada, oscilações de humor, névoa mental e aperto no peito.</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#5B3370">Ler artigo →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ===== artigo 1 ===== -->
+  <sc-if value="{{ isA1 }}" hint-placeholder-val="{{ false }}">
+  <main class="post" style="max-width:1180px;margin:0 auto;padding:44px 24px 90px;display:flex;flex-direction:column;gap:38px">
+    <div style="border:1px solid #E0C6D5;padding:10px;background:#fff">
+      <image-slot id="post-1-hero" shape="rect" style="width:100%;height:clamp(220px,32vw,400px)" placeholder="Imagem de topo do artigo — arraste aqui (retangular, 1600×600)"></image-slot>
+    </div>
+    <header style="display:flex;flex-direction:column;gap:16px;max-width:760px">
+      <span style="font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#8E3F63">Radiestesia · Leitura de 5 min</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4.2vw,50px);line-height:1.08;color:#452A57;margin:0;text-wrap:pretty">O que é Radiestesia? Entenda como o pêndulo capta as frequências do seu corpo</h1>
+    </header>
+    <div style="max-width:760px;display:flex;flex-direction:column;gap:22px;font-size:16.5px;line-height:1.75;color:#443B4D">
+      <p style="margin:0;font-size:18.5px;line-height:1.65;color:#5B3370;text-wrap:pretty">Você já teve a sensação de entrar em um lugar e sentir o clima “pesado”? Ou de se aproximar de alguém e perceber uma energia desconfortável sem que uma única palavra fosse dita? Essa percepção não é imaginação: é a sua sensibilidade natural às frequências e vibrações que nos cercam.</p>
+      <p style="margin:0;text-wrap:pretty">A Radiestesia é a ciência e a arte de medir essas radiações e energias sutis. O nome vem da junção do latim <em>radius</em> (radiação) com o grego <em>aisthesis</em> (sensibilidade), significando literalmente a “sensibilidade às radiações”.</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">Como o pêndulo realmente funciona?</h2>
+      <p style="margin:0;text-wrap:pretty">Diferente do que muitos pensam, o pêndulo não possui poderes mágicos próprios. Ele funciona como um amplificador de respostas do seu próprio sistema nervoso.</p>
+      <p style="margin:0;text-wrap:pretty">O corpo humano atua como uma grande antena receptora. Quando um radiestesista segura o pêndulo para avaliar um campo energético, seu subconsciente capta a frequência vibracional da pessoa ou do ambiente. Essa captação gera micro-movimentos involuntários nos músculos do braço (chamados de reflexos neuromusculares), fazendo o pêndulo mover-se em sentidos e velocidades específicas.</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">O que pode ser avaliado em uma sessão?</h2>
+      <p style="margin:0;text-wrap:pretty">Na consulta com Leila Goddard, a radiestesia é utilizada como uma ferramenta de diagnóstico preciso para identificar:</p>
+      <div style="display:flex;flex-direction:column;gap:14px;background:#F6ECF1;border:1px solid #E0C6D5;padding:26px">
+        <div style="display:flex;gap:12px"><span style="color:#D2779F">+</span><span><strong style="font-weight:600;color:#452A57">O estado dos 7 chakras principais:</strong> quais estão alinhados, bloqueados ou hiperativos.</span></div>
+        <div style="display:flex;gap:12px"><span style="color:#D2779F">+</span><span><strong style="font-weight:600;color:#452A57">A vitalidade do campo áurico:</strong> presença de estresse, sobrecarga emocional ou energias estagnadas.</span></div>
+        <div style="display:flex;gap:12px"><span style="color:#D2779F">+</span><span><strong style="font-weight:600;color:#452A57">A raiz dos bloqueios:</strong> se a origem da estagnação é emocional, mental ou ambiental.</span></div>
+        <div style="display:flex;gap:12px"><span style="color:#D2779F">+</span><span><strong style="font-weight:600;color:#452A57">A compatibilidade de tratamentos:</strong> qual fórmula floral ou recurso terapêutico é o mais indicado para o momento presente do cliente.</span></div>
+      </div>
+      <p style="margin:0;text-wrap:pretty">A radiestesia traz clareza para o que muitas vezes sentimos no corpo, mas não conseguimos explicar racionalmente. É o primeiro passo para sair do estado de confusão emocional e iniciar uma jornada de cura consciente.</p>
+    </div>
+    <aside style="max-width:760px;background:#452A57;color:#FBF7F9;padding:34px;display:flex;flex-direction:column;gap:18px">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(21px,2.3vw,27px);line-height:1.35;margin:0;color:#FBF7F9;text-wrap:pretty">Quer descobrir como está a saúde do seu campo energético?</p>
+      <p style="margin:0;font-size:15.5px;line-height:1.6;color:#E6D9E4">Agende uma avaliação individual com Leila Goddard via WhatsApp e receba um diagnóstico completo do seu momento.</p>
+      <a href="https://wa.me/553175742707?text=Ol%C3%A1%20Leila%2C%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20campo%20energ%C3%A9tico." target="_blank" rel="noopener" style="align-self:flex-start;background:#D2779F;color:#3A2247;padding:16px 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#E29BB8;color:#3A2247">Agendar avaliação</a>
+    </aside>
+    <nav style="max-width:760px;display:flex;justify-content:space-between;gap:16px;border-top:1px solid #E0C6D5;padding-top:22px;font-size:14px">
+      <a href="#blog">← Todos os artigos</a>
+      <a href="#artigo-2">Próximo: Mesa Radiônica à distância →</a>
+    </nav>
+  </main>
+  </sc-if>
+
+  <!-- ===== artigo 2 ===== -->
+  <sc-if value="{{ isA2 }}" hint-placeholder-val="{{ false }}">
+  <main class="post" style="max-width:1180px;margin:0 auto;padding:44px 24px 90px;display:flex;flex-direction:column;gap:38px">
+    <div style="border:1px solid #E0C6D5;padding:10px;background:#fff">
+      <image-slot id="post-2-hero" shape="rect" style="width:100%;height:clamp(220px,32vw,400px)" placeholder="Imagem de topo do artigo — arraste aqui (retangular, 1600×600)"></image-slot>
+    </div>
+    <header style="display:flex;flex-direction:column;gap:16px;max-width:760px">
+      <span style="font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#8E3F63">Mesa Radiônica · Leitura de 6 min</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4.2vw,50px);line-height:1.08;color:#452A57;margin:0;text-wrap:pretty">Mesa Radiônica à distância: como funciona a harmonização sem sair de casa?</h1>
+    </header>
+    <div style="max-width:760px;display:flex;flex-direction:column;gap:22px;font-size:16.5px;line-height:1.75;color:#443B4D">
+      <p style="margin:0;font-size:18.5px;line-height:1.65;color:#5B3370;text-wrap:pretty">Uma das dúvidas mais frequentes de quem busca o trabalho de Leila Goddard é: “a Mesa Radiônica realmente funciona à distância?” ou “preciso estar online no momento em que a sessão for realizada?”.</p>
+      <p style="margin:0;text-wrap:pretty">A resposta é sim: a Mesa Radiônica funciona à distância com a mesma precisão e eficácia de um atendimento presencial. Para compreender como isso é possível, precisamos olhar para a forma como a energia se comporta além das barreiras físicas de tempo e espaço.</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">O conceito do campo vibracional e quântico</h2>
+      <p style="margin:0;text-wrap:pretty">Na física quântica, existe um fenômeno conhecido como emaranhamento quântico, que demonstra como partículas interconectadas conseguem influenciar-se mutuamente de forma instantânea, independentemente da distância física entre elas.</p>
+      <p style="margin:0;text-wrap:pretty">Na terapia holística, trabalhamos com o campo vibracional. Quando você autoriza um atendimento e fornece dados como seu nome completo e data de nascimento, esses elementos funcionam como um “endereço energético” único. A partir desse testemunho, a Mesa Radiônica consegue acessar e atuar diretamente no seu campo, esteja você na mesma sala ou do outro lado do mundo.</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">O que acontece durante uma sessão</h2>
+      <p style="margin:0;text-wrap:pretty">A Mesa Radiônica é uma prancha composta por símbolos de geometria sagrada, relógios de medição e gráficos radiônicos. Durante a sessão, Leila Goddard atua em três etapas fundamentais:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+        <div style="background:#F6ECF1;border:1px solid #E0C6D5;padding:24px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:28px;line-height:1;color:#D2779F">01</span>
+          <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:21px;color:#452A57">Diagnóstico</strong>
+          <span style="font-size:14.5px;line-height:1.6;color:#554A5E">Medição de índices de ansiedade, vitalidade, alinhamento dos chakras e bloqueios em áreas específicas — relacionamentos, trabalho, saúde.</span>
+        </div>
+        <div style="background:#F6ECF1;border:1px solid #E0C6D5;padding:24px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:28px;line-height:1;color:#D2779F">02</span>
+          <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:21px;color:#452A57">Limpeza e neutralização</strong>
+          <span style="font-size:14.5px;line-height:1.6;color:#554A5E">Envio de frequências para transmutar energias densas, formas-pensamento negativas e padrões repetitivos que travam a sua rotina.</span>
+        </div>
+        <div style="background:#F6ECF1;border:1px solid #E0C6D5;padding:24px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:28px;line-height:1;color:#D2779F">03</span>
+          <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:21px;color:#452A57">Harmonização e ancoragem</strong>
+          <span style="font-size:14.5px;line-height:1.6;color:#554A5E">Ativação de frequências de cura, equilíbrio emocional e proteção energética.</span>
+        </div>
+      </div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">A praticidade do atendimento assíncrono</h2>
+      <p style="margin:0;text-wrap:pretty">Você não precisa parar o seu dia ou ficar imóvel durante o processo. Agendamos o horário e, ao finalizar o trabalho na mesa, Leila envia um relatório detalhado (laudo em PDF) acompanhado de áudios explicativos no seu WhatsApp.</p>
+      <p style="margin:0;text-wrap:pretty">Você recebe todas as medições feitas antes e depois da harmonização, compreende exatamente o que foi trabalhado e aprende a sustentar essa nova frequência no seu dia a dia.</p>
+    </div>
+    <aside style="max-width:760px;background:#452A57;color:#FBF7F9;padding:34px;display:flex;flex-direction:column;gap:18px">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(21px,2.3vw,27px);line-height:1.35;margin:0;color:#FBF7F9;text-wrap:pretty">Sente que sua vida precisa de um reequilíbrio profundo?</p>
+      <p style="margin:0;font-size:15.5px;line-height:1.6;color:#E6D9E4">Agende sua sessão de Mesa Radiônica com Leila Goddard e receba seu laudo onde estiver.</p>
+      <a href="https://wa.me/553175742707?text=Ol%C3%A1%20Leila%2C%20quero%20agendar%20uma%20sess%C3%A3o%20de%20Mesa%20Radi%C3%B4nica." target="_blank" rel="noopener" style="align-self:flex-start;background:#D2779F;color:#3A2247;padding:16px 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#E29BB8;color:#3A2247">Agendar sessão</a>
+    </aside>
+    <nav style="max-width:760px;display:flex;justify-content:space-between;gap:16px;border-top:1px solid #E0C6D5;padding-top:22px;font-size:14px">
+      <a href="#artigo-1">← Anterior: O que é Radiestesia</a>
+      <a href="#artigo-3">Próximo: Cansaço mental e ansiedade →</a>
+    </nav>
+  </main>
+  </sc-if>
+
+  <!-- ===== artigo 3 ===== -->
+  <sc-if value="{{ isA3 }}" hint-placeholder-val="{{ false }}">
+  <main class="post" style="max-width:1180px;margin:0 auto;padding:44px 24px 90px;display:flex;flex-direction:column;gap:38px">
+    <div style="border:1px solid #E0C6D5;padding:10px;background:#fff">
+      <image-slot id="post-3-hero" shape="rect" style="width:100%;height:clamp(220px,32vw,400px)" placeholder="Imagem de topo do artigo — arraste aqui (retangular, 1600×600)"></image-slot>
+    </div>
+    <header style="display:flex;flex-direction:column;gap:16px;max-width:760px">
+      <span style="font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#8E3F63">Florais · Leitura de 5 min</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4.2vw,50px);line-height:1.08;color:#452A57;margin:0;text-wrap:pretty">Cansaço mental e ansiedade: como a combinação de radiestesia e florais devolve a leveza</h1>
+    </header>
+    <div style="max-width:760px;display:flex;flex-direction:column;gap:22px;font-size:16.5px;line-height:1.75;color:#443B4D">
+      <p style="margin:0;font-size:18.5px;line-height:1.65;color:#5B3370;text-wrap:pretty">Você acorda cansado, passa o dia com a sensação de estar correndo contra o tempo e, quando finalmente se deita para dormir, a mente simplesmente não desliga? Esse ciclo de ansiedade e exaustão tornou-se a realidade de milhares de pessoas.</p>
+      <p style="margin:0;text-wrap:pretty">Geralmente, tentamos resolver o cansaço apenas repousando o corpo físico. No entanto, quando a causa do esgotamento está na sobrecarga emocional e na desorganização do campo energético, dormir oito horas por noite não é suficiente. É aqui que a união entre a Radiestesia e a Terapia Floral transforma o tratamento.</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">A causa emocional por trás do sintoma</h2>
+      <p style="margin:0;text-wrap:pretty">A ansiedade e a exaustão não surgem do nada. Elas são o resultado acumulado de emoções não processadas, medo, excesso de controle e cobranças diárias. Essas frequências acumulam-se no corpo sutil e afetam diretamente os chakras do plexo solar e cardíaco.</p>
+      <p style="margin:0;text-wrap:pretty">Enquanto a Radiestesia identifica com precisão milimétrica quais emoções estão desequilibradas e onde a sua energia está vazando, os Florais atuam como o remédio sutil necessário para reestruturar essas emoções.</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">Por que testar o floral na radiestesia é mais eficiente?</h2>
+      <p style="margin:0;text-wrap:pretty">Muitas pessoas compram florais prontos em farmácias com base apenas no que leem no rótulo. Embora as essências sejam benéficas, esse método funciona por tentativa e erro. No atendimento de Leila Goddard, o uso do pêndulo elimina a adivinhação:</p>
+      <div style="display:flex;flex-direction:column;gap:14px;background:#F6ECF1;border:1px solid #E0C6D5;padding:26px">
+        <div style="display:flex;gap:12px"><span style="color:#D2779F">+</span><span>As essências são testadas uma a uma em relação ao seu campo energético.</span></div>
+        <div style="display:flex;gap:12px"><span style="color:#D2779F">+</span><span>Descobre-se a combinação exata de flores necessárias para o seu momento específico.</span></div>
+        <div style="display:flex;gap:12px"><span style="color:#D2779F">+</span><span>Determina-se a dosagem e a prioridade emocional a ser tratada primeiro — o medo, a mágoa, o perfeccionismo ou o cansaço extremo.</span></div>
+      </div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">A sustentação da cura</h2>
+      <p style="margin:0;text-wrap:pretty">A Mesa Radiônica limpa o campo energético de forma imediata durante a consulta, enquanto as gotas do floral atuam progressivamente ao longo das semanas seguintes, reeducando o seu sistema emocional a responder com calma, clareza e autocontrole diante dos desafios.</p>
+    </div>
+    <aside style="max-width:760px;background:#452A57;color:#FBF7F9;padding:34px;display:flex;flex-direction:column;gap:18px">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(21px,2.3vw,27px);line-height:1.35;margin:0;color:#FBF7F9;text-wrap:pretty">Sua mente precisa de uma pausa?</p>
+      <p style="margin:0;font-size:15.5px;line-height:1.6;color:#E6D9E4">Fale com Leila Goddard no WhatsApp e descubra a fórmula floral exata para resgatar sua paz interior.</p>
+      <a href="https://wa.me/553175742707?text=Ol%C3%A1%20Leila%2C%20quero%20descobrir%20minha%20f%C3%B3rmula%20floral." target="_blank" rel="noopener" style="align-self:flex-start;background:#D2779F;color:#3A2247;padding:16px 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#E29BB8;color:#3A2247">Falar com Leila</a>
+    </aside>
+    <nav style="max-width:760px;display:flex;justify-content:space-between;gap:16px;border-top:1px solid #E0C6D5;padding-top:22px;font-size:14px">
+      <a href="#artigo-2">← Anterior: Mesa Radiônica à distância</a>
+      <a href="#artigo-4">Próximo: Harmonização de ambientes →</a>
+    </nav>
+  </main>
+  </sc-if>
+
+  <!-- ===== artigo 4 ===== -->
+  <sc-if value="{{ isA4 }}" hint-placeholder-val="{{ false }}">
+  <main class="post" style="max-width:1180px;margin:0 auto;padding:44px 24px 90px;display:flex;flex-direction:column;gap:38px">
+    <div style="border:1px solid #E0C6D5;padding:10px;background:#fff">
+      <image-slot id="post-4-hero" shape="rect" style="width:100%;height:clamp(220px,32vw,400px)" placeholder="Imagem de topo do artigo — arraste aqui (retangular, 1600×600)"></image-slot>
+    </div>
+    <header style="display:flex;flex-direction:column;gap:16px;max-width:760px">
+      <span style="font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#8E3F63">Ambientes · Leitura de 6 min</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4.2vw,50px);line-height:1.08;color:#452A57;margin:0;text-wrap:pretty">Harmonização de ambientes: a energia da sua casa está drenando o seu sono e sua produtividade?</h1>
+    </header>
+    <div style="max-width:760px;display:flex;flex-direction:column;gap:22px;font-size:16.5px;line-height:1.75;color:#443B4D">
+      <p style="margin:0;font-size:18.5px;line-height:1.65;color:#5B3370;text-wrap:pretty">Nossa casa é uma extensão do nosso próprio corpo energético. É o lugar onde deveríamos nos refazer, descansar e nutrir nossas relações familiares. No entanto, muitas pessoas relatam que ao entrar em casa sentem dores de cabeça inexplicáveis, insônia ou irritabilidade constante.</p>
+      <p style="margin:0;text-wrap:pretty">Na Geobiologia e Radiestesia Ambiental, sabemos que o espaço físico acumula frequências vibracionais que podem fortalecer ou esgotar a vitalidade dos seus moradores.</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">O que pode estar errado com a energia do seu imóvel?</h2>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="background:#F6ECF1;border:1px solid #E0C6D5;padding:24px;display:flex;flex-direction:column;gap:8px">
+          <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;color:#452A57">Estresse geopático</strong>
+          <span style="font-size:15.5px;line-height:1.65;color:#4A4152">Veios de água subterrâneos, falhas geológicas ou linhas de rede magnética que cruzam diretamente o local onde fica a sua cama ou a sua mesa de trabalho. Ficar horas sobre essas zonas pode causar fadiga crônica e sono não reparador.</span>
+        </div>
+        <div style="background:#F6ECF1;border:1px solid #E0C6D5;padding:24px;display:flex;flex-direction:column;gap:8px">
+          <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;color:#452A57">Poluição eletromagnética</strong>
+          <span style="font-size:15.5px;line-height:1.65;color:#4A4152">Roteadores Wi-Fi, torres de celular e excesso de aparelhos eletrônicos geram campos magnéticos artificiais que alteram o campo bioenergético humano.</span>
+        </div>
+        <div style="background:#F6ECF1;border:1px solid #E0C6D5;padding:24px;display:flex;flex-direction:column;gap:8px">
+          <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;color:#452A57">Energia impregnada</strong>
+          <span style="font-size:15.5px;line-height:1.65;color:#4A4152">Memórias de discussões antigas, histórico de doenças ou acúmulo de sentimentos pesados trazidos de fora pelos próprios moradores ou visitantes.</span>
+        </div>
+      </div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">Como funciona a harmonização com Leila Goddard</h2>
+      <p style="margin:0;text-wrap:pretty">Por meio da radiestesia à distância, Leila analisa a planta ou o endereço do imóvel para mapear o nível de vibração da casa e identificar os pontos de estagnação. A partir desse diagnóstico, são aplicados gráficos radiônicos, símbolos de neutralização e correções energéticas específicas para:</p>
+      <div style="display:flex;flex-direction:column;gap:14px;border-left:2px solid #D2779F;padding-left:22px">
+        <div style="display:flex;gap:12px"><span style="color:#D2779F">+</span><span>Limpar memórias e impregnações negativas das paredes e cômodos.</span></div>
+        <div style="display:flex;gap:12px"><span style="color:#D2779F">+</span><span>Neutralizar focos de poluição eletromagnética e geopática.</span></div>
+        <div style="display:flex;gap:12px"><span style="color:#D2779F">+</span><span>Elevar a frequência da casa para atuar a favor da saúde, da prosperidade e da harmonia familiar.</span></div>
+      </div>
+      <p style="margin:0;text-wrap:pretty">Tratar o seu espaço é essencial para garantir que a sua energia pessoal não continue sendo drenada no local onde você deveria se reequilibrar.</p>
+    </div>
+    <aside style="max-width:760px;background:#452A57;color:#FBF7F9;padding:34px;display:flex;flex-direction:column;gap:18px">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(21px,2.3vw,27px);line-height:1.35;margin:0;color:#FBF7F9;text-wrap:pretty">Quer transformar a energia da sua casa ou empresa?</p>
+      <p style="margin:0;font-size:15.5px;line-height:1.6;color:#E6D9E4">Solicite uma avaliação de ambiente com Leila Goddard e traga mais leveza para o seu espaço.</p>
+      <a href="https://wa.me/553175742707?text=Ol%C3%A1%20Leila%2C%20quero%20uma%20avalia%C3%A7%C3%A3o%20de%20ambiente." target="_blank" rel="noopener" style="align-self:flex-start;background:#D2779F;color:#3A2247;padding:16px 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#E29BB8;color:#3A2247">Solicitar avaliação</a>
+    </aside>
+    <nav style="max-width:760px;display:flex;justify-content:space-between;gap:16px;border-top:1px solid #E0C6D5;padding-top:22px;font-size:14px">
+      <a href="#artigo-3">← Anterior: Cansaço mental e ansiedade</a>
+      <a href="#artigo-5">Próximo: 5 sinais de desequilíbrio →</a>
+    </nav>
+  </main>
+  </sc-if>
+
+  <!-- ===== artigo 5 ===== -->
+  <sc-if value="{{ isA5 }}" hint-placeholder-val="{{ false }}">
+  <main class="post" style="max-width:1180px;margin:0 auto;padding:44px 24px 90px;display:flex;flex-direction:column;gap:38px">
+    <div style="border:1px solid #E0C6D5;padding:10px;background:#fff">
+      <image-slot id="post-5-hero" shape="rect" style="width:100%;height:clamp(220px,32vw,400px)" placeholder="Imagem de topo do artigo — arraste aqui (retangular, 1600×600)"></image-slot>
+    </div>
+    <header style="display:flex;flex-direction:column;gap:16px;max-width:760px">
+      <span style="font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#8E3F63">Autoconhecimento · Leitura de 5 min</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4.2vw,50px);line-height:1.08;color:#452A57;margin:0;text-wrap:pretty">5 sinais claros de que seu campo energético e seus chakras precisam de um reequilíbrio</h1>
+    </header>
+    <div style="max-width:760px;display:flex;flex-direction:column;gap:22px;font-size:16.5px;line-height:1.75;color:#443B4D">
+      <p style="margin:0;font-size:18.5px;line-height:1.65;color:#5B3370;text-wrap:pretty">Assim como tomamos banho para cuidar do corpo físico e escovamos os dentes diariamente, o nosso corpo sutil — aura e chakras — também exige manutenção e higiene constante. No ritmo acelerado em que vivemos, é comum acumularmos resíduos energéticos sem perceber.</p>
+      <p style="margin:0;text-wrap:pretty">Se você está em dúvida se o seu momento pede uma consulta de radiestesia, confira os 5 sinais de alerta de que o seu campo energético precisa de limpeza:</p>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;gap:20px;background:#F6ECF1;border:1px solid #E0C6D5;padding:26px">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1;color:#D2779F;flex:none">1</span>
+          <span style="display:flex;flex-direction:column;gap:8px">
+            <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px;color:#452A57">Cansaço que não passa com o descanso</strong>
+            <span style="font-size:15.5px;line-height:1.65;color:#4A4152">Você dorme 8 ou 9 horas, mas acorda com a sensação de ter trabalhado a noite inteira. O corpo físico parece pesado e falta vitalidade para tarefas simples. Isso ocorre quando os chakras da base e do plexo solar estão desalinhados ou com baixa carga energética.</span>
+          </span>
+        </div>
+        <div style="display:flex;gap:20px;background:#F6ECF1;border:1px solid #E0C6D5;padding:26px">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1;color:#D2779F;flex:none">2</span>
+          <span style="display:flex;flex-direction:column;gap:8px">
+            <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px;color:#452A57">Sensação recorrente de vida “travada”</strong>
+            <span style="font-size:15.5px;line-height:1.65;color:#4A4152">Por mais que você planeje, estude ou se dedique, os projetos parecem estagnar, o dinheiro entra e sai rapidamente sem explicação, ou os relacionamentos caem sempre nos mesmos padrões. Esse bloqueio costuma indicar nós energéticos ou formas-pensamento no campo.</span>
+          </span>
+        </div>
+        <div style="display:flex;gap:20px;background:#F6ECF1;border:1px solid #E0C6D5;padding:26px">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1;color:#D2779F;flex:none">3</span>
+          <span style="display:flex;flex-direction:column;gap:8px">
+            <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px;color:#452A57">Oscilações bruscas de humor e hiperatividade mental</strong>
+            <span style="font-size:15.5px;line-height:1.65;color:#4A4152">Irritabilidade sem motivo aparente, ansiedade repentina, choro fácil ou uma mente que pensa em mil coisas ao mesmo tempo. Quando o campo áurico está vulnerável, você passa a absorver emoções e tensões do ambiente e das pessoas ao redor.</span>
+          </span>
+        </div>
+        <div style="display:flex;gap:20px;background:#F6ECF1;border:1px solid #E0C6D5;padding:26px">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1;color:#D2779F;flex:none">4</span>
+          <span style="display:flex;flex-direction:column;gap:8px">
+            <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px;color:#452A57">Dificuldade de concentração e perda de clareza</strong>
+            <span style="font-size:15.5px;line-height:1.65;color:#4A4152">Sensação de névoa mental, esquecimentos frequentes e indecisão sobre qual rumo tomar. O desalinhamento dos chakras frontal e coronário prejudica a conexão com a sua intuição e sabedoria interior.</span>
+          </span>
+        </div>
+        <div style="display:flex;gap:20px;background:#F6ECF1;border:1px solid #E0C6D5;padding:26px">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1;color:#D2779F;flex:none">5</span>
+          <span style="display:flex;flex-direction:column;gap:8px">
+            <strong style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:23px;color:#452A57">Aperto no peito ou nó na garganta</strong>
+            <span style="font-size:15.5px;line-height:1.65;color:#4A4152">Mesmo após exames médicos descartarem causas físicas, persiste uma sensação de peso no centro do peito ou bloqueio na região da garganta. São sinais clássicos de emoções reprimidas nos chakras cardíaco e laríngeo.</span>
+          </span>
+        </div>
+      </div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(25px,2.8vw,32px);line-height:1.2;color:#452A57;margin:14px 0 0">Como virar essa chave?</h2>
+      <p style="margin:0;text-wrap:pretty">Identificar-se com esses sinais não é motivo para preocupação, mas um convite para olhar para si com mais carinho. A Radiestesia Integrativa com Leila Goddard mapeia exatamente qual desses pontos precisa de atenção prioritária, promovendo a limpeza e a harmonização necessárias para que sua vida volte a fluir com leveza.</p>
+    </div>
+    <aside style="max-width:760px;background:#452A57;color:#FBF7F9;padding:34px;display:flex;flex-direction:column;gap:18px">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(21px,2.3vw,27px);line-height:1.35;margin:0;color:#FBF7F9;text-wrap:pretty">Sentiu que esse texto foi escrito para você?</p>
+      <p style="margin:0;font-size:15.5px;line-height:1.6;color:#E6D9E4">Agende agora o seu reequilíbrio energético com Leila Goddard pelo WhatsApp e recupere seu bem-estar.</p>
+      <a href="https://wa.me/553175742707?text=Ol%C3%A1%20Leila%2C%20quero%20agendar%20meu%20reequil%C3%ADbrio%20energ%C3%A9tico." target="_blank" rel="noopener" style="align-self:flex-start;background:#D2779F;color:#3A2247;padding:16px 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#E29BB8;color:#3A2247">Agendar reequilíbrio</a>
+    </aside>
+    <nav style="max-width:760px;display:flex;justify-content:space-between;gap:16px;border-top:1px solid #E0C6D5;padding-top:22px;font-size:14px">
+      <a href="#artigo-4">← Anterior: Harmonização de ambientes</a>
+      <a href="#blog">Todos os artigos →</a>
+    </nav>
+  </main>
+  </sc-if>
+
+  <a href="https://wa.me/553175742707?text=Ol%C3%A1%20Leila%2C%20gostaria%20de%20agendar%20minha%20sess%C3%A3o." target="_blank" rel="noopener" style="position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:12px;background:#5B3370;color:#FBF7F9;padding:15px 22px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase;animation:softPulse 3.4s ease-out infinite" style-hover="background:#D2779F;color:#3A2247">
+    <svg viewBox="0 0 24 36" style="height:26px;flex:none;overflow:visible" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <circle cx="12" cy="2.5" r="1.8" fill="currentColor" stroke="none"></circle>
+      <g style="animation:pendulumSwing 3.6s ease-in-out infinite;transform-origin:12px 2.5px">
+        <line x1="12" y1="4" x2="12" y2="17"></line>
+        <path d="M12 17 C18 23 17 30 12 34 C7 30 6 23 12 17 Z" fill="currentColor" stroke="none"></path>
+      </g>
+    </svg>
+    Agende sua sessão
+  </a>
+
+  <footer style="background:#3A2247;color:#C8B6CE;padding:28px 24px;border-top:1px solid rgba(240,220,231,.2)">
+    <div style="max-width:1180px;margin:0 auto;font-size:12.5px;line-height:1.6;text-align:center;text-wrap:pretty">© 2026 Leila Goddard — Terapias Holísticas e Radiestesia. Todos os direitos reservados. Atendimento 100% online.</div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const POSTS = {
+  "artigo-1": "O que é Radiestesia?",
+  "artigo-2": "Mesa Radiônica à distância",
+  "artigo-3": "Cansaço mental e ansiedade",
+  "artigo-4": "Harmonização de ambientes",
+  "artigo-5": "5 sinais de desequilíbrio"
+};
+
+class Component extends DCLogic {
+  state = { route: "blog" };
+
+  componentDidMount() {
+    this._sync = () => {
+      const h = (location.hash || "").replace("#", "");
+      this.setState({ route: POSTS[h] ? h : "blog" }, () => window.scrollTo(0, 0));
+    };
+    window.addEventListener("hashchange", this._sync);
+    this._sync();
+  }
+  componentWillUnmount() {
+    window.removeEventListener("hashchange", this._sync);
+  }
+  renderVals() {
+    const r = this.state.route;
+    const isPost = !!POSTS[r];
+    return {
+      isIndex: !isPost,
+      isPost: isPost,
+      isA1: r === "artigo-1",
+      isA2: r === "artigo-2",
+      isA3: r === "artigo-3",
+      isA4: r === "artigo-4",
+      isA5: r === "artigo-5",
+      postTitle: POSTS[r] || "",
+      crumbBlogStyle: isPost ? {} : { color: "#452A57", fontWeight: 500 }
+    };
+  }
+}
+
+</script>
+</body>
+</html>
