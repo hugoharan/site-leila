@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leilagoddard.com.br/sitemap.xml

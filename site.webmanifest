@@ -1,0 +1,13 @@
+{
+  "name": "Leila Goddard — Radiestesia e Terapias Holísticas",
+  "short_name": "Leila Goddard",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF7F9",
+  "theme_color": "#5B3370",
+  "icons": [
+    { "src": "assets/favicon-16.png", "sizes": "16x16", "type": "image/png" },
+    { "src": "assets/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

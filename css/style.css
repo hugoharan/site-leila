@@ -282,7 +282,12 @@ section[id] { scroll-margin-top: 160px; }
 
 /* ===== breadcrumbs ===== */
 .breadcrumbs { border-bottom: 1px solid var(--border-soft); background: var(--bg-alt); }
-.breadcrumbs .wrap { padding: 12px 24px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12.5px; letter-spacing: .03em; color: var(--ink-faint); }
+.breadcrumbs .wrap { padding: 12px 24px; }
+.breadcrumb-list {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; list-style: none; margin: 0; padding: 0;
+  font-size: 12.5px; letter-spacing: .03em; color: var(--ink-faint);
+}
+.breadcrumb-list li { display: flex; align-items: center; }
 .breadcrumbs .sep { color: #C89FB6; }
 .breadcrumbs .current { color: var(--purple-800); }
 .breadcrumbs a.current-link { color: var(--purple-700); font-weight: 500; }
